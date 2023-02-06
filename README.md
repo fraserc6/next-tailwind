@@ -14,23 +14,42 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Expanding 
+## Coding Style
 
-The Tailwind config is currently only purging the /pages/ directory. If you want to create a new root level folder for components or other template files, be sure to add this to the purge array in tailwind.config.js
+We use ESLint and Prettier to ensure the coding style is always the same.
 
-## Learn More
+### Configure eslint
 
-To learn more about Next.js, take a look at the following resources:
+To make ESLint errors visible in VSCode, you need to install the [ESLint plugin](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+I also recommend you tell VSCode to auto-fix ESLint errors on Save. To do so, create a `.vscode/settings.json` file with the following content:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```json
+{
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	}
+}
+```
 
-To learn more about Tailwind, have a flick through their [docs](https://tailwindcss.com/docs).
+### Configure Prettier
 
+Now let's configure VSCode to actually format our code on save according to our prettier configuration file. To do so, install VSCode's [prettier plugin](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode).
+
+Then, you can tell VSCode to format the code on Save by editing our `.vscode/settings.json` file:
+
+```json
+{
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	},
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode"
+}
+```
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
